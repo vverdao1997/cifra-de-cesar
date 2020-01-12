@@ -94,10 +94,10 @@ $(document).ready(function(){
 				case 'V':  traducao += 'X'; break;
 				case 'w':  traducao += 'z'; break;
 				case 'W':  traducao += 'Z'; break;
-				case 'y':  traducao += 'a'; break;
-				case 'Y':  traducao += 'A'; break;
-				case 'x':  traducao += 'b'; break;
-				case 'X':  traducao += 'B'; break;
+				case 'x':  traducao += 'a'; break;
+				case 'X':  traducao += 'A'; break;
+				case 'y':  traducao += 'b'; break;
+				case 'Y':  traducao += 'B'; break;
 				case 'z':  traducao += 'c'; break;
 				case 'Z':  traducao += 'C'; break;
 
@@ -231,10 +231,10 @@ $(document).ready(function(){
 				case 'X':  traducao += 'V'; break;
 				case 'z':  traducao += 'w'; break;
 				case 'Z':  traducao += 'W'; break;
-				case 'a':  traducao += 'y'; break;
-				case 'A':  traducao += 'Y'; break;
-				case 'b':  traducao += 'x'; break;
-				case 'B':  traducao += 'X'; break;
+				case 'a':  traducao += 'x'; break;
+				case 'A':  traducao += 'X'; break;
+				case 'b':  traducao += 'y'; break;
+				case 'B':  traducao += 'Y'; break;
 				case 'c':  traducao += 'z'; break;
 				case 'C':  traducao += 'Z'; break;
 
@@ -304,7 +304,9 @@ $(document).ready(function(){
 	$("#limpar").click(function(){
 		$("#codificador").val('');
 		$("#txt_encode").empty();
+	});
 
+	$("#limpar2").click(function(){
 		$("#decodificador").val('');
 		$("#txt_decode").empty();	
 	});
