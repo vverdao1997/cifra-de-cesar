@@ -1,67 +1,98 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Cifra de César</title>
-	<style type="text/css">
-		body{
-			background: url(https://i.ibb.co/g77619Y/cesar.jpg) no-repeat center top fixed;
-		}	
-		@media only screen and (max-width: 600px) {
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<title>Cifra de César</title>
+		<style type="text/css">
+			.mR10{ margin-right: 10px; }
+
 			body{
-				background: url(https://i.ibb.co/t87pLCg/cesar.jpg) no-repeat center top fixed;
+				background: url(https://i.ibb.co/g77619Y/cesar.jpg) no-repeat center top fixed;
 			}	
-		}
+			@media only screen and (max-width: 722px) {
+			 	body {
+			    	background: url(https://i.ibb.co/t87pLCg/cesar.jpg) no-repeat center top fixed;
+			  	}
+			}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+		<script src='cifra.js' charset="utf-8"></script>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	</head>
+		<body>
 
+		<ul class="nav nav-tabs bg-light" style='width: 100%'>
+			<li class="nav-item">
+				<a class="nav-link active" href="index.html">
+				<i class="fas fa-home"></i>
+			</a>
+			</li>
+			<li class="nav-item dropdown " id="menu_drop">
+				<a class="nav-link text-body" style="cursor: pointer;">
+					<i class="fas fa-bars"></i>
+				</a>
+				<div class="dropdown-menu bg-light">
+					<a class="dropdown-item bg-light" style="cursor: pointer;" onclick="view('history')">
+						HISTORY
+						<i class="fas fa-landmark float-right"></i>
+					</a>
+					<a class="dropdown-item bg-light" style="cursor: pointer;" onclick="view('encode')">
+						ENCODE
+						<i class="fas fa-code float-right"></i>
+					</a>
+					<a class="dropdown-item bg-light" style="cursor: pointer;" onclick="view('decode')">
+						DECODE
+						<i class="fas fa-code float-right"></i>
+					</a>
+				</div>
+			</li>
+		</ul>
 
-	</style>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src='cifra.js' charset="utf-8"></script>
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
+		<br><br>
 
-	<ul class="nav nav-tabs">
-		<li class="nav-item">
-			<a class="nav-link active" href="index.html">Inicio</a>
-		</li>
-		<li class="nav-item dropdown" id="menu_drop">
-			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Opções</a>
-			<div class="dropdown-menu">
-				<a class="dropdown-item" id='opt1'>Historia</a>
-				<a class="dropdown-item" id='opt2'>Codificador</a>
-				<a class="dropdown-item" id='opt3'>Decodificador</a>
-			</div>
-		</li>
-	</ul>
+		<center>
+			<fieldset style='width: 400px; height: 390px; border-radius: 5px; display: none; margin-top: 100px;' class='historia bg-light '>
+				<br>
+				<h3>HISTORY</h3>
+				<div><br>
+					<p>
+						In cryptography, the Caesar Cipher, also known as exchange cipher, Caesar code or Caesar exchange, is one of the most simple and well-known encryption techniques. It is a type of substitution cipher in which each letter of the text is replaced by another, which appears in the alphabet below it a fixed number of times. For example, with an exchange of three positions, A would be replaced by D, B would become E, and so on. The method is named after Julius Caesar, who used it to communicate with his generals.
+					</p>
+				</div><br>
+			</fieldset>
+		</center>
 
-	<br><br>
-	<center>
-		<fieldset style='width: 470px; height: 230px; border-radius: 5px; display: none; background-color: white;' class='codificador'>
-			<br>
-			<h3>CODIFICADOR</h3>
-			<div>
-				<textarea id="codificador" maxlength="200" style="resize: none; width: 450px; height: 70px;"></textarea><br>
-				<span id='txt_encode' style="font-weight:bold;"></span>
-			</div><br>
-			<button type="button" class="btn btn-light" id='limpar' style="float: right; margin-right: 10px;">Limpar</button>
-			<button type="button" class="btn btn-light" id='codificar' style="float: right; margin-right: 10px;">Codificar</button>
-		</fieldset>
-	</center>
+		<center>
+			<fieldset style='width: 400px; height: 230px; border-radius: 5px; display: none; margin-top: 100px;' class='codificador bg-light '>
+				<br>
+				<h3>ENCODE</h3>
+				<div>
+					<textarea id="codificador" maxlength="200" style="resize: none; width: 380px; height: 70px;"></textarea><br>
+					<input id='txt_encode' class="bg-light text-center" type="text" style="border: none; width: 100%; outline: none;">
+				</div><br>
+				<button type="button" class="btn btn-secondary float-right mR10" onclick="limpeza()">Clean</button>
+				<button class="btn btn-secondary float-right mR10" onclick="copiar('codificar')">Copy</button>
+				<button type="button" class="btn btn-secondary float-right mR10" onclick="codificador()">Encode</button>
+			</fieldset>
+		</center>
 
-	<center>
-		<fieldset style='width: 470px; height: 230px; border-radius: 5px; display: none; background-color: white;' class='decodificador'>
-			<br>
-			<h3>DECODIFICADOR</h3>
-			<div>
-				<textarea id="decodificador" placeholder="" maxlength="200" style="resize: none; width: 450px; height: 70px;"></textarea><br>
-				<span id='txt_decode' style="font-weight:bold;"></span>
-			</div><br>
-			<button type="button" class="btn btn-light"  id='limpar2' style="float: right; margin-right: 10px;">Limpar</button>
-			<button type="button" class="btn btn-light" id='decodificar' style="float: right;  margin-right: 10px;">Decodificar</button>
-		</fieldset>
-	</center>
+		<center>
+			<fieldset style='width: 400px; height: 230px; border-radius: 5px; display: none; margin-top: 100px;' class='decodificador bg-light'>
+				<br>
+				<h3>DECODER</h3>
+				<div>
+					<textarea id="decodificador" placeholder="" maxlength="200" style="resize: none; width: 380px; height: 70px;"></textarea><br>
+					<input id='txt_decode' class="bg-light text-center" type="text" style="border: none; width: 100%; outline: none;">
+				</div><br>
+				<button type="button" class="btn btn-secondary float-right mR10" onclick="limpeza()">Clean</button>
+				<button class="btn btn-secondary float-right mR10" onclick="copiar('decodificar')">Copy</button>
+				<button type="button" class="btn btn-secondary float-right mR10" onclick="decodificador()">Decoder</button>
+			</fieldset>
+		</center>
 
-
-</body>
+	</body>
 </html>
